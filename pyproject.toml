@@ -1,0 +1,22 @@
+[project]
+name = "civics-graph"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "dgiltz", email = "giltzdeclan@gmail.com"},
+]
+dependencies = ["rdflib>=7.2.1", "boto3>=1.40.56", "playwright>=1.55.0"]
+requires-python = "==3.13.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.1",
+    "mypy>=1.18.2",
+]
