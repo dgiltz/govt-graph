@@ -1,22 +1,29 @@
 [project]
-name = "civics-graph"
+name = "govt-graph"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
     {name = "dgiltz", email = "giltzdeclan@gmail.com"},
 ]
-dependencies = ["rdflib>=7.2.1", "boto3>=1.40.56", "playwright>=1.55.0", "docling>=2.58.0", "spacy>=3.8.7", "nltk>=3.9.2", "transformers>=4.57.1", "newspaper4k>=0.9.3.1"]
-requires-python = "==3.13.*"
+dependencies = ["rdflib>=7.3.0", "ipykernel>=7.0.1", "requests>=2.32.5", "python-dotenv>=1.1.1", "feedparser>=6.0.12", "pandas[tabulate]>=2.3.3", "pyyaml>=6.0.3", "praw>=7.8.1", "click>=8.3.0"]
+requires-python = "==3.14.*"
 readme = "README.md"
 license = {text = "MIT"}
+
+[project.scripts]
+govt-graph = "src.cli.__main__:cli"
 
 
 [tool.pdm]
 distribution = false
 
+[tool.pdm.scripts]
+govt-graph = {cmd = "python -m src.cli", env = {PYTHONPATH = "govt-graph"}}
+
 
 [dependency-groups]
 dev = [
-    "ruff>=0.14.1",
+    "ruff>=0.14.2",
     "mypy>=1.18.2",
+    "aws-cdk-lib>=2.221.0",
 ]
